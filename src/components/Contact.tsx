@@ -2,24 +2,32 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Check } from 'lucide-react';
 
-type FormData = { name: string; email: string; message: string };
+type FormData = { name: string; email: string; phone: string; message: string };
 
 export default function Contact() {
-  const [formData, setFormData] = useState<FormData>({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState<FormData>({ name: '', email: '', phone: '', message: '' });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState({ email: '', message: '', form: '' });
+  const [errors, setErrors] = useState({ email: '', phone: '', message: '', form: '' });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const newErrors = { email: '', message: '', form: '' };
+    const newErrors = { email: '', phone: '', message: '', form: '' };
     let isValid = true;
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       newErrors.email = 'Please enter a valid email address';
       isValid = false;
+    }
+
+    if (formData.phone.trim()) {
+      const digits = formData.phone.replace(/\D/g, '');
+      if (digits.length < 7 || digits.length > 15) {
+        newErrors.phone = 'Please enter a valid phone number';
+        isValid = false;
+      }
     }
 
     if (formData.message.trim().length < 10) {
@@ -32,8 +40,8 @@ export default function Contact() {
 
     setLoading(true);
     try {
-      const apiBase = process.env.REACT_APP_API_URL || '';
-      const res = await fetch(`${apiBase}/api/messages`, {
+      // Using relative URL for API which will work with Vite proxy
+      const res = await fetch('/api/messages', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -46,7 +54,7 @@ export default function Contact() {
 
       // success
       setIsSubmitted(true);
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', message: '' });
       setTimeout(() => setIsSubmitted(false), 3000);
     } catch (err: any) {
       setErrors(prev => ({ ...prev, form: err.message || 'Server error' }));
@@ -161,6 +169,20 @@ export default function Contact() {
                   placeholder="your.email@example.com"
                 />
                 {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
+              </div>
+
+              <div>
+                <label htmlFor="phone" className="block text-sm font-semibold mb-2 text-gray-300">Phone</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 rounded-lg bg-white/5 border ${errors.phone ? 'border-red-500' : 'border-cyan-500/30'} focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 text-white transition-all`}
+                  placeholder="e.g. +91 98765 43210"
+                />
+                {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
               </div>
 
               <div>

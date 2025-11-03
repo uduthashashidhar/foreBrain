@@ -1,4 +1,5 @@
 import { Shield, Brain, Code, Globe, Clock, TrendingUp, ArrowRight, Cpu, Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 
 export default function Courses() {
@@ -36,6 +37,7 @@ export default function Courses() {
       level: 'Intermediate',
       description: 'Master ethical hacking, network security, and threat detection with hands-on labs and real-world scenarios.',
       gradient: 'from-cyan-500 to-blue-600',
+      slug: 'cybersecurity',
     },
     {
       icon: Brain,
@@ -44,6 +46,7 @@ export default function Courses() {
       level: 'Advanced',
       description: 'Dive into machine learning, neural networks, and AI applications with cutting-edge tools and frameworks.',
       gradient: 'from-purple-500 to-pink-600',
+      slug: 'artificial-intelligence',
     },
     {
       icon: Code,
@@ -52,6 +55,7 @@ export default function Courses() {
       level: 'Beginner',
       description: 'Learn Python from scratch with practical projects in automation, data analysis, and software development.',
       gradient: 'from-green-500 to-teal-600',
+      slug: 'python',
     },
     {
       icon: Globe,
@@ -60,6 +64,7 @@ export default function Courses() {
       level: 'Intermediate',
       description: 'Build modern, responsive websites with HTML, CSS, JavaScript, React, and backend technologies.',
       gradient: 'from-orange-500 to-red-600',
+      slug: 'web-development',
     },
     {
       icon: Cpu,
@@ -68,6 +73,7 @@ export default function Courses() {
       level: 'Intermediate',
       description: 'Empowering innovation through intelligent data analysis, machine learning, and predictive insights.',
       gradient: 'from-blue-500 to-red-600',
+      slug: 'data-science',
     },
     {
       icon: Users,
@@ -76,6 +82,7 @@ export default function Courses() {
       level: 'Intermediate',
       description: 'Bridging the gap between code and deployment through automation, collaboration, and agility.',
       gradient: 'from-yellow-500 to-red-600',
+      slug: 'devops',
     },
   ];
 
@@ -99,7 +106,7 @@ export default function Courses() {
                   : 'opacity-0 translate-y-10'
               }`}
             >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${course.gradient} rounded-t-2xl" />
+              <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${course.gradient} rounded-t-2xl`} />
 
               <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${course.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                 <course.icon className="w-8 h-8 text-white" />
@@ -120,10 +127,10 @@ export default function Courses() {
 
               <p className="text-gray-400 mb-6 leading-relaxed">{course.description}</p>
 
-              <button className="flex items-center space-x-2 text-cyan-400 font-semibold group-hover:text-cyan-300 transition-colors">
+              <Link to={`/courses/${course.slug}`} className="flex items-center space-x-2 text-cyan-400 font-semibold group-hover:text-cyan-300 transition-colors">
                 <span>Learn More</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </Link>
             </div>
           ))}
         </div>

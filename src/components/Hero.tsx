@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
   const [text, setText] = useState('');
@@ -62,19 +63,20 @@ export default function Hero() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
           {[
-            { icon: '🛡️', label: 'Cybersecurity' },
-            { icon: '🧠', label: 'Artificial Intelligence' },
-            { icon: '🐍', label: 'Python' },
-            { icon: '🌐', label: 'Web Development' },
+            { icon: '🛡️', label: 'Cybersecurity', to: '/courses/cybersecurity' },
+            { icon: '🧠', label: 'Artificial Intelligence', to: '/courses/artificial-intelligence' },
+            { icon: '🐍', label: 'Python', to: '/courses/python' },
+            { icon: '🌐', label: 'Web Development', to: '/courses/web-development' },
           ].map((item, idx) => (
-            <div
+            <Link
               key={idx}
-              className="glass-effect rounded-xl p-6 neon-border glow-hover animate-float"
+              to={item.to}
+              className="glass-effect rounded-xl p-6 neon-border glow-hover animate-float focus:outline-none focus:ring-2 focus:ring-cyan-500"
               style={{ animationDelay: `${idx * 0.2}s` }}
             >
               <div className="text-4xl mb-2">{item.icon}</div>
               <p className="text-sm font-semibold text-gray-300">{item.label}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

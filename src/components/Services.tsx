@@ -1,5 +1,6 @@
 import { Shield, Brain, Code, Globe, Users, Cpu, BookOpen, ArrowRight } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Services() {
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
@@ -32,10 +33,11 @@ export default function Services() {
   const services = [
     {
       icon: Shield,
-      title: 'CRT Training',
-      subtitle: 'Cyber Response Team',
-      desc: 'Intensive, hands-on CRT training focused on incident response, malware analysis, and live tabletop exercises to build an effective response capability.',
+      title: 'Campus Recruitment Training (CRT)',
+      subtitle: 'Career Readiness & Placement',
+      desc: 'Outcome-driven training for campus placements: aptitude, communication, interviews, resume building, and mock tests to boost placement success.',
       gradient: 'from-cyan-500 to-blue-600',
+      slug: 'campus-recruitment-training',
     },
     {
       icon: Brain,
@@ -43,6 +45,7 @@ export default function Services() {
       subtitle: 'AI & ML Curriculum',
       desc: 'Modular AI program covering ML fundamentals, model deployment, responsible AI practices, and applied projects (NLP, CV, predictive analytics).',
       gradient: 'from-purple-500 to-pink-600',
+      slug: 'ai-modules',
     },
     {
       icon: Code,
@@ -50,6 +53,7 @@ export default function Services() {
       subtitle: 'Secure Development',
       desc: 'Secure full-stack development and automation solutions — from prototyping to production with security best practices baked in.',
       gradient: 'from-green-500 to-teal-600',
+      slug: 'software-development',
     },
     {
       icon: Globe,
@@ -57,6 +61,7 @@ export default function Services() {
       subtitle: 'PenTest & Audit',
       desc: 'Comprehensive web and API security assessments including OWASP testing, authenticated scans, and remediation guidance.',
       gradient: 'from-orange-500 to-red-600',
+      slug: 'web-security-audit',
     },
     {
       icon: Users,
@@ -64,6 +69,7 @@ export default function Services() {
       subtitle: 'Team Upskilling',
       desc: 'Custom workshops for enterprises and universities — phishing simulation, secure coding, SOC fundamentals, and awareness training.',
       gradient: 'from-yellow-400 to-amber-500',
+      slug: 'corporate-workshops',
     },
     {
       icon: Cpu,
@@ -71,6 +77,7 @@ export default function Services() {
       subtitle: 'IoT & Embedded',
       desc: 'Lightweight security assessments and hardening guidance for IoT devices, NB-IoT and embedded systems (useful for your EV/ISRO context).',
       gradient: 'from-teal-400 to-cyan-500',
+      slug: 'iot-security',
     },
   ];
 
@@ -111,21 +118,16 @@ export default function Services() {
                       <h3 className="text-xl font-semibold text-white">{svc.title}</h3>
                       <p className="text-sm text-cyan-300 mt-1">{svc.subtitle}</p>
                     </div>
-                    <div className="text-sm text-gray-400 hidden group-hover:block">
-                      <span className="inline-flex items-center space-x-1">
-                        <span>Details</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </span>
-                    </div>
+                    
                   </div>
 
                   <p className="text-gray-400 mt-4 text-sm leading-relaxed">{svc.desc}</p>
 
                   <div className="mt-6">
-                    <button className="inline-flex items-center space-x-2 text-cyan-400 font-semibold hover:text-cyan-300 transition-colors">
-                      <span>Request Info</span>
+                    <Link to={`/services/${svc.slug}`} className="inline-flex items-center space-x-2 text-cyan-400 font-semibold hover:text-cyan-300 transition-colors">
+                      <span>Details</span>
                       <ArrowRight className="w-4 h-4" />
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
