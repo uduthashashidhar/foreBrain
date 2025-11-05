@@ -1,27 +1,5 @@
 import { useState, useEffect } from 'react';
-import {
-  Menu,
-  X,
-  ChevronUp,
-  Shield,
-  Brain,
-  Code,
-  Globe,
-  Users,
-  Award,
-  BookOpen,
-  Briefcase,
-  Star,
-  Mail,
-  Phone,
-  MapPin,
-  Linkedin,
-  Twitter,
-  Instagram,
-  Facebook,
-  Send,
-  Check,
-} from 'lucide-react';
+import { Linkedin, Twitter, Instagram, Facebook, Mail, Phone, MapPin } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -34,9 +12,20 @@ import About from './components/About';
 import Contact from './components/Contact';
 import ParticleBackground from './components/ParticleBackground';
 import ScrollToTop from './components/ScrollToTop';
+import Loader from './components/Loader'; // Import the loader
 
 function App() {
+  const [loading, setLoading] = useState(true);
   const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    // Simulate a loading delay
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1500); // Adjust time as needed
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,8 +36,12 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
-    <div className="relative min-h-screen bg-[#050510] text-white scroll-smooth">
+    <div className="relative min-h-screen bg-[#050510] text-white scroll-smooth app-fade-in">
       <ParticleBackground />
       <div className="cyber-grid fixed inset-0 z-0 opacity-30" />
 
@@ -64,6 +57,7 @@ function App() {
         <About />
         <Contact />
 
+        {/* Footer remains the same */}
         <footer className="relative bg-gradient-to-b from-[#050510] via-[#0a0a20] to-[#0f0f30] border-t border-cyan-500/20">
           <div className="absolute inset-0 cyber-grid opacity-20" />
 
