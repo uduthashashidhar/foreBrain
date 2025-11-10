@@ -5,7 +5,7 @@ import ceoImg from '../assets/ceo.jpg';
 export default function Team() {
   const leadership = [
     {
-      name: 'pooja',
+      name: 'Pooja Tayade',
       role: 'Director & Founder',
       image: founderImg,
       highlight: 'Vision & Operations',
