@@ -5,10 +5,11 @@ import Hero from './components/Hero';
 import Services from './components/Services';
 import Courses from './components/Courses';
 import Features from './components/Features';
-import Workshops from './components/Workshops';
 import Testimonials from './components/Testimonials';
 import Statistics from './components/Statistics';
 import About from './components/About';
+import Team from './components/Team';
+import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import ParticleBackground from './components/ParticleBackground';
 import ScrollToTop from './components/ScrollToTop';
@@ -51,10 +52,11 @@ function App() {
         <Services />
         <Courses />
         <Features />
-        <Workshops />
         <Testimonials />
         <Statistics />
         <About />
+        <Team />
+        <Gallery />
         <Contact />
 
         {/* Footer remains the same */}
