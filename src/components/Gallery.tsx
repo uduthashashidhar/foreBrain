@@ -63,9 +63,9 @@ export default function Gallery() {
   return (
     <section id="gallery" className="relative py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-10">
+        <div className="mb-10 text-center">
           <h2 className="text-3xl md:text-4xl font-bold gradient-text">Gallery</h2>
-          <p className="text-gray-400 mt-3 max-w-3xl">
+          <p className="text-gray-400 mt-3 max-w-3xl mx-auto">
             Highlights from our workshops and events — a quick look at the energy, collaboration, and learning.
           </p>
         </div>
