@@ -154,3 +154,160 @@
     opacity: 1;
   }
 }
+
+/* Smooth, subtle float animation for Explore More course cards */
+@keyframes floatSmooth {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+.float-smooth {
+  animation: floatSmooth 6s ease-in-out infinite;
+}
+
+/* Pop-up hover animation utility for buttons */
+@keyframes popIn {
+  0% { transform: scale(1); }
+  60% { transform: scale(1.08); }
+  100% { transform: scale(1.03); }
+}
+
+.pop-hover {
+  transition: transform 180ms ease-out, box-shadow 180ms ease-out, filter 180ms ease-out;
+}
+.pop-hover:hover {
+  animation: popIn 180ms ease-out forwards;
+  box-shadow: 0 10px 24px rgba(255, 255, 255, 0.08);
+  filter: brightness(1.05);
+}
+
+/* Reduced motion support: minimize animations for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-pulse-slow,
+  .animate-glow,
+  .float-smooth,
+  .pop-hover,
+  .app-fade-in,
+  .cyber-grid {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Attractive download button styling with glow and subtle ripple */
+.download-btn {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(135deg, rgba(31, 41, 55, 0.9), rgba(55, 65, 81, 0.9));
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+.download-btn:hover {
+  box-shadow: 0 10px 24px rgba(0, 255, 255, 0.18);
+  transform: translateY(-1px);
+}
+.download-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(0, 255, 255, 0.15), transparent 40%);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+.download-btn:hover::before { opacity: 1; }
+.download-btn .icon { transition: transform 220ms ease, color 220ms ease; }
+.download-btn:hover .icon { transform: translateX(3px); }
+
+/* Cyan variant */
+.download-btn-cyan { border-color: rgba(56, 189, 248, 0.35); }
+.download-btn-cyan:hover { box-shadow: 0 10px 24px rgba(56, 189, 248, 0.25); }
+
+/* Purple variant */
+.download-btn-purple { border-color: rgba(168, 85, 247, 0.35); }
+.download-btn-purple:hover { box-shadow: 0 10px 24px rgba(168, 85, 247, 0.25); }
+
+/* Theme accents and unique scrollbar styling */
+:root {
+  --accent-cyan: #06b6d4;
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+  --scroll-pc: 50%;
+}
+
+/* Firefox scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-purple) rgba(8, 15, 30, 0.5);
+}
+
+/* Chromium/Safari scrollbar */
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+*::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, rgba(8, 15, 30, 0.6), rgba(8, 15, 30, 0.9));
+  border-radius: 999px;
+}
+*::-webkit-scrollbar-thumb {
+  background-image:
+    linear-gradient(180deg, var(--accent-cyan), var(--accent-purple)),
+    radial-gradient(120px circle at 50% var(--scroll-pc), rgba(255, 255, 255, 0.14), transparent 60%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--accent-cyan), #a78bfa);
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.55);
+}
+*::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #22d3ee, var(--accent-purple));
+}
+*::-webkit-scrollbar-corner { background: transparent; }
+
+/* Text selection to match theme */
+::selection {
+  background: rgba(139, 92, 246, 0.25);
+  color: #e5e7eb;
+}
+::-moz-selection {
+  background: rgba(139, 92, 246, 0.25);
+  color: #e5e7eb;
+}
+
+/* Cursor tip glow that follows the mouse */
+.cursor-glow {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate3d(calc(var(--cursor-x, 50vw) - 10px), calc(var(--cursor-y, 50vh) - 10px), 0)
+             scale(var(--cursor-scale, 1));
+  transition: transform 90ms ease-out, opacity 120ms ease-out, filter 180ms ease;
+  background: radial-gradient(circle,
+    rgba(56, 189, 248, 0.75) 0%,
+    rgba(168, 85, 247, 0.45) 40%,
+    rgba(0, 0, 0, 0) 60%);
+  filter: blur(6px) saturate(1.05);
+  mix-blend-mode: lighten;
+  opacity: var(--cursor-opacity, 0.6);
+}
+.cursor-glow-hidden { opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-glow { transition: none; }
+}
+
+/* Hide glow on coarse pointers (mobile/touch) */
+@media (pointer: coarse) {
+  .cursor-glow { display: none; }
+}
