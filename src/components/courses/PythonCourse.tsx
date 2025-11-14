@@ -138,12 +138,14 @@ export default function PythonCourse() {
               Begin your programming journey with Python, the perfect language for beginners. 
               No prior experience required - we'll guide you every step of the way.
             </p>
-            <Link 
-              to="/#contact" 
+            <a
+              href="https://form.finalform.so/forms/FEAH0emy"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-500 to-teal-600 px-8 py-3 rounded-lg font-semibold hover:from-green-400 hover:to-teal-500 transition-all transform hover:scale-105"
             >
               <span>Enroll Now</span>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

@@ -231,12 +231,14 @@ export default function AdvancedSOCCourse() {
           <div className="glass-effect rounded-2xl p-8 neon-border text-center">
             <h2 className="text-2xl font-bold mb-3 gradient-text">Enroll</h2>
             <div className="mt-2 flex justify-center">
-              <Link 
-                to="/#contact" 
+              <a
+                href="https://form.finalform.so/forms/FEAH0emy"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-pink-600 px-8 py-3 rounded-lg font-semibold hover:from-purple-400 hover:to-pink-500 transition-all pop-hover"
               >
                 <span>Enroll Now</span>
-              </Link>
+              </a>
             </div>
             <div className="mt-4 flex justify-center">
               <a

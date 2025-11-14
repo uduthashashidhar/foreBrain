@@ -211,13 +211,15 @@ export default function BlueTeamThreatHuntingCourse() {
           <div className="glass-effect rounded-2xl p-8 neon-border">
             <h2 className="text-2xl font-bold mb-3 gradient-text text-center">Enroll & Download</h2>
             <div className="mt-2 flex justify-center">
-              <Link 
-                to="/#contact" 
+              <a
+                href="https://form.finalform.so/forms/FEAH0emy"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 bg-gradient-to-r from-sky-500 to-blue-700 px-8 py-3 rounded-lg font-semibold hover:from-sky-400 hover:to-blue-600 transition-all transform hover:scale-105 pop-hover"
               >
                 <Target className="w-5 h-5" />
                 <span>Enroll Now</span>
-              </Link>
+              </a>
             </div>
             <div className="mt-4 flex justify-center">
               <a

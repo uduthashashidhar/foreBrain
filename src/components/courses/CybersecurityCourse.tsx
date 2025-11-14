@@ -304,12 +304,14 @@ export default function CybersecurityCourse() {
             <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
               Join the Forebrain 6-month program to become job-ready with hands-on labs and an industry-grade capstone.
             </p>
-            <Link 
-              to="/#contact" 
+            <a
+              href="https://form.finalform.so/forms/FEAH0emy"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-3 rounded-lg font-semibold hover:from-cyan-400 hover:to-blue-500 transition-all transform hover:scale-105"
             >
               <span>Enroll Now</span>
-            </Link>
+            </a>
             <div className="mt-4">
               {syllabusUrl ? (
                 <a

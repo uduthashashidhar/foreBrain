@@ -136,12 +136,14 @@ export default function DataScienceCourse() {
             <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
               Learn data science techniques to analyze, model, and deploy solutions that drive business decisions.
             </p>
-            <Link 
-              to="/#contact" 
+            <a
+              href="https://form.finalform.so/forms/FEAH0emy"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-red-600 px-8 py-3 rounded-lg font-semibold hover:from-blue-400 hover:to-red-500 transition-all transform hover:scale-105"
             >
               <span>Enroll Now</span>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

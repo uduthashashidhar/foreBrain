@@ -138,12 +138,14 @@ export default function WebDevelopmentCourse() {
               Master full-stack web development and create modern, responsive web applications. 
               Build a professional portfolio that showcases your skills to employers.
             </p>
-            <Link 
-              to="/#contact" 
+            <a
+              href="https://form.finalform.so/forms/FEAH0emy"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-red-600 px-8 py-3 rounded-lg font-semibold hover:from-orange-400 hover:to-red-500 transition-all transform hover:scale-105"
             >
               <span>Enroll Now</span>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

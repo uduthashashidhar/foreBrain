@@ -208,12 +208,14 @@ export default function BugBountyCourse() {
           <div className="glass-effect rounded-2xl p-8 neon-border">
             <h2 className="text-2xl font-bold mb-3 gradient-text text-center">Enroll & Download</h2>
             <div className="mt-2 flex justify-center gap-4">
-              <Link 
-                to="/contact"
+              <a
+                href="https://form.finalform.so/forms/FEAH0emy"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-6 py-3 rounded-lg bg-gradient-to-r from-rose-600 to-orange-600 hover:from-rose-500 hover:to-orange-500 transition-colors font-semibold pop-hover"
               >
                 Enroll Now
-              </Link>
+              </a>
               {syllabusUrl ? (
                 <a 
                   href={syllabusUrl}

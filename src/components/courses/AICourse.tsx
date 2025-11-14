@@ -138,12 +138,14 @@ export default function AICourse() {
               Join our advanced AI program and become an expert in machine learning and artificial intelligence. 
               Shape the future with cutting-edge AI technologies.
             </p>
-            <Link 
-              to="/#contact" 
+            <a
+              href="https://form.finalform.so/forms/FEAH0emy"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-pink-600 px-8 py-3 rounded-lg font-semibold hover:from-purple-400 hover:to-pink-500 transition-all transform hover:scale-105"
             >
               <span>Enroll Now</span>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

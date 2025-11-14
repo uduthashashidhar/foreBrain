@@ -213,13 +213,15 @@ export default function PenetrationTestingCourse() {
               <li>• Anyone preparing for pentesting careers</li>
             </ul>
             <div className="mt-6 flex justify-center">
-              <Link 
-                to="/#contact" 
+              <a
+                href="https://form.finalform.so/forms/FEAH0emy"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-3 rounded-lg font-semibold hover:from-cyan-400 hover:to-blue-500 transition-all transform hover:scale-105"
               >
                 <Target className="w-5 h-5" />
                 <span>Enroll Now</span>
-              </Link>
+              </a>
             </div>
             <div className="mt-4 flex justify-center">
               <a
