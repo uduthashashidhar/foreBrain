@@ -1,7 +1,17 @@
-import { Cpu, Clock, TrendingUp, CheckCircle, ArrowLeft, Users, Award, BookOpen } from 'lucide-react';
+import { Cpu, Clock, TrendingUp, CheckCircle, ArrowLeft, Users, Award, BookOpen, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function DataScienceCourse() {
+  // Discover Data Science syllabus file URL from assets (PDF/DOCX)
+  const syllabusUrl = (() => {
+    const files = import.meta.glob('/src/assets/**/Data_Science_and_Analytics_Curriculum.*', {
+      eager: true,
+      as: 'url',
+    }) as unknown as Record<string, string>;
+    const first = Object.values(files)[0];
+    return first;
+  })();
+  const hasSyllabus = Boolean(syllabusUrl);
   const modules = [
     'SQL for Data Analytics',
     'Power BI for Business Intelligence',
@@ -137,14 +147,26 @@ export default function DataScienceCourse() {
             <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
               Learn data science techniques to analyze, model, and deploy solutions that drive business decisions.
             </p>
-            <a
-              href="https://form.finalform.so/forms/FEAH0emy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-red-600 px-8 py-3 rounded-lg font-semibold hover:from-blue-400 hover:to-red-500 transition-all transform hover:scale-105"
-            >
-              <span>Enroll Now</span>
-            </a>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="https://form.finalform.so/forms/FEAH0emy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-red-600 px-8 py-3 rounded-lg font-semibold hover:from-blue-400 hover:to-red-500 transition-all transform hover:scale-105"
+              >
+                <span>Enroll Now</span>
+              </a>
+              <a
+                href={hasSyllabus ? syllabusUrl : undefined}
+                download={hasSyllabus ? 'Data_Science_and_Analytics_Curriculum' : undefined}
+                aria-disabled={!hasSyllabus}
+                onClick={(e) => { if (!hasSyllabus) e.preventDefault(); }}
+                className={`inline-flex items-center space-x-2 px-8 py-3 rounded-lg font-semibold transition-all transform ${hasSyllabus ? 'bg-gradient-to-r from-blue-600 to-red-600 hover:from-blue-500 hover:to-red-500 shadow-lg shadow-blue-500/20 hover:-translate-y-0.5' : 'bg-gray-800 text-gray-500 cursor-not-allowed'}`}
+              >
+                <Download className="w-5 h-5" />
+                <span>{hasSyllabus ? 'Download Syllabus' : 'Syllabus Coming Soon'}</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
