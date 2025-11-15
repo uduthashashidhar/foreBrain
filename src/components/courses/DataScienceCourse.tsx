@@ -3,15 +3,16 @@ import { Link } from 'react-router-dom';
 
 export default function DataScienceCourse() {
   const modules = [
-    'Introduction to Data Science',
-    'Python for Data Analysis',
-    'Statistics & Probability',
-    'Data Wrangling with Pandas',
-    'Data Visualization (Matplotlib/Seaborn)',
-    'Machine Learning Basics',
-    'Supervised & Unsupervised Learning',
-    'Feature Engineering',
-    'Model Evaluation & Tuning',
+    'SQL for Data Analytics',
+    'Power BI for Business Intelligence',
+    'Excel for Data Analysis',
+    'Python Foundations',
+    'Python for Data Analysis (NumPy & Pandas)',
+    'Data Visualization (Python + Power BI)',
+    'Statistics & Probability for Data Science',
+    'Exploratory Data Analysis (EDA)',
+    'Supervised Machine Learning',
+    'Unsupervised Machine Learning & Feature Engineering',
     'Time Series Analysis',
     'MLOps & Deployment',
     'Capstone Project'
