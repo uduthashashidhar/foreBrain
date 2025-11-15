@@ -61,12 +61,13 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
           {[
             { icon: '🛡️', label: 'Cybersecurity', to: '/courses/cybersecurity' },
             { icon: '🧠', label: 'Artificial Intelligence', to: '/courses/artificial-intelligence' },
             { icon: '🐍', label: 'Python', to: '/courses/python' },
             { icon: '🌐', label: 'Web Development', to: '/courses/web-development' },
+            { icon: '📊', label: 'Data Science', to: '/courses/data-science' },
           ].map((item, idx) => (
             <Link
               key={idx}
