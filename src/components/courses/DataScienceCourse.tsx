@@ -147,7 +147,7 @@ export default function DataScienceCourse() {
             <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
               Learn data science techniques to analyze, model, and deploy solutions that drive business decisions.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex justify-center">
               <a
                 href="https://form.finalform.so/forms/FEAH0emy"
                 target="_blank"
@@ -156,6 +156,8 @@ export default function DataScienceCourse() {
               >
                 <span>Enroll Now</span>
               </a>
+            </div>
+            <div className="mt-4 flex justify-center">
               <a
                 href={hasSyllabus ? syllabusUrl : undefined}
                 download={hasSyllabus ? 'Data_Science_and_Analytics_Curriculum' : undefined}
